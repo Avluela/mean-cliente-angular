@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Producto } from 'src/app/models/producto';
 
 @Component({
@@ -12,7 +13,8 @@ export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private toastr: ToastrService) {
     this.productoForm = this.fb.group({
       producto: ['', Validators.required],
       categoria: ['', Validators.required],
@@ -41,6 +43,9 @@ export class CrearProductoComponent implements OnInit {
     }
 
     console.log(PRODUCTO);
+
+    this.toastr.success('Producto registrado!', 'El producto fue registrado con éxito!');
+
     // Para poder usar esta funcion es necesario importar Router en linea 15 y 3
     this.router.navigate(['/']);
   }
