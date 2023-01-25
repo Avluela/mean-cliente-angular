@@ -1,0 +1,50 @@
+Comenzando
+
+-Necesario:
+    NODE JS
+    ANGULAR CLI
+
+--ver version de node utilizada
+    nvm ls
+--cambiar la version de node utilizada
+    nvm use 00.00.00
+
+---crear un nuevo proyecto 
+    ng new nombreProyecto
+
+---correr proyecto
+    ng serve --o 
+
+---instalar bootstrap
+    ir al sitio oficial de bootstrap
+    -download 
+        ver comando npm 
+        ejecutar
+    -en la raiz, editar angular.json
+        dentro del array de styles agregar la direccion de bootstrap, por defecto estaria en 
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+---Organizacion de carpetas
+    Todo el codigo se encuentra dentro de src/app
+    se recominda crear 
+        -components
+        -services: lo utilizamos para hacer peticiones http a un backend, para reutilizar codigo y para comunicacion de datos entre componentes 
+        -models: va a contener los modelos de nuestra aplicacion
+
+---Crear un componentes 
+    ng g c components/nombre-componente
+
+---Crear un servicio
+    ng g s services/nombre-servicio
+
+---Crear una Clase
+    creamos un archivo.ts en la carpeta models con el nombre de la Clase
+
+---Rutas
+    las rutas se definen en src\app\app-routing.module.ts
+    es Necesario cambiar todo lo que este por defecto dentro de src\app\app.component.html por <router-outlet></router-outlet>
+    eso hará que de ahi en adelante mustre lo que ha sido renderizado por las rutas que definimos
+
+---Agregar css custom
+    agregar nuestros css personalizado dentro de 
+    src\styles.css (estos son los archivos globales)

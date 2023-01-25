@@ -1,5 +1,5 @@
 export class Producto {
-  _id?: number;
+  _id?: number;           //se lo pone con _ inicial porque asi tambien lo tiene en mongo db
   name: string;
   category: string;
   location: string;
