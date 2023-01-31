@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">CREAR product</span>
+          <!-- Con [formGroup] asocio este form al declarado en create-product.component.ts -->
+          <!-- El submit va a ejcutar la funcion addproduct() declarada en create-product.component.ts -->
+          <form class="mt-3" [formGroup]="productForm" (ngSubmit)="addproduct()">
+            <div class="mt-3">
+              <input type="text" formControlName="product" class="form-control form-control-lg" placeholder="product">
+              <!-- el error debajo del input solo se mostrara cuando el input no pase los parametros de validacion y ya haya sido seleccionado al menos por una vez -->
+              <div class="text-danger" *ngIf="productForm.get('product')?.hasError('required') && productForm.get('product')?.touched">
+                <span>El nombre del product es <strong>obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <input type="text" formControlName="category" class="form-control form-control-lg" placeholder="category">
+              <div class="text-danger" *ngIf="productForm.get('category')?.hasError('required') && productForm.get('category')?.touched">
+                <span>La category del product es <strong>obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <input type="text" formControlName="location" class="form-control form-control-lg" placeholder="Ubicación">
+              <div class="text-danger" *ngIf="productForm.get('location')?.hasError('required') && productForm.get('location')?.touched">
+                <span>La ubicación del product es <strong>obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <input type="number" formControlName="price" class="form-control form-control-lg" placeholder="price">
+              <div class="text-danger" *ngIf="productForm.get('price')?.hasError('required') && productForm.get('price')?.touched">
+                <span>El price del product es <strong>obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <!-- las rutas son declaradas dentro de app-routing.module.ts -->
+              <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>
+              <!-- el boton esrá desabilitado a menos que el productForm sea valido -->
+              <button type="submit" [disabled]="productForm.invalid" class="btn btn-success btn-lg float-end">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

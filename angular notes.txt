@@ -9,29 +9,29 @@ Comenzando
 --cambiar la version de node utilizada
     nvm use 00.00.00
 
----crear un nuevo proyecto 
+---crear un nuevo proyecto
     ng new nombreProyecto
 
 ---correr proyecto
-    ng serve --o 
+    ng serve --o
 
 ---instalar bootstrap
     ir al sitio oficial de bootstrap
-    -download 
-        ver comando npm 
+    -download
+        ver comando npm
         ejecutar
     -en la raiz, editar angular.json
-        dentro del array de styles agregar la direccion de bootstrap, por defecto estaria en 
+        dentro del array de styles agregar la direccion de bootstrap, por defecto estaria en
         "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 ---Organizacion de carpetas
     Todo el codigo se encuentra dentro de src/app
-    se recominda crear 
+    se recominda crear
         -components
-        -services: lo utilizamos para hacer peticiones http a un backend, para reutilizar codigo y para comunicacion de datos entre componentes 
+        -services: lo utilizamos para hacer peticiones http a un backend, para reutilizar codigo y para comunicacion de datos entre componentes
         -models: va a contener los modelos de nuestra aplicacion
 
----Crear un componentes 
+---Crear un componentes
     ng g c components/nombre-componente
 
 ---Crear un servicio
@@ -46,5 +46,23 @@ Comenzando
     eso hará que de ahi en adelante mustre lo que ha sido renderizado por las rutas que definimos
 
 ---Agregar css custom
-    agregar nuestros css personalizado dentro de 
+    agregar nuestros css personalizado dentro de
     src\styles.css (estos son los archivos globales)
+
+---Trabajar con reactive Forms
+    Dentro de src\app\app.module.ts importar ReactiveFormsModule, debe quedar algo asi
+    @NgModule({
+      declarations: [
+        ...
+      ],
+      imports: [
+        ...
+        ReactiveFormsModule,
+
+      ------
+      Luego dentro de nuestro componente vamos a crear una variable para importar el FormGroup
+
+      mas info en https://angular.io/guide/reactive-forms
+
+---Mensajes pop-up
+    https://www.npmjs.com/package/ngx-toastr
